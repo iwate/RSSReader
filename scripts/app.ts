@@ -266,5 +266,9 @@ window.onload = function () {
             });
     });
 
+    $("a").on("click", (ev) => {
+        ev.preventDefault();
+        window.open($(ev.target).attr("href"));
+    }, true);
     entityManager.load(siteCollection.toArray());
 }

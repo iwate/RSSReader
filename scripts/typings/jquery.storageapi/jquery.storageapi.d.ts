@@ -14,13 +14,13 @@ interface JQueryStorage {
     set(...keysAndValue: any[]): void;
     set(dict: any): void;
     keys(...keys: string[]): string[];
-    isEmpty(...keys: string[]);
-    isEmpty(keys: string[]);
-    isSet(...keys: string[]);
-    isSet(keys: string[]);
-    remove(...keys: string[]);
-    remove(keys: string[]);
-    removeAll(global?: boolean);
+    isEmpty(...keys: string[]): boolean;
+    isEmpty(keys: string[]): boolean;
+    isSet(...keys: string[]): boolean;
+    isSet(keys: string[]): boolean;
+    remove(...keys: string[]): void;
+    remove(keys: string[]): void;
+    removeAll(global?: boolean): void;
     
 }
 interface JQueryCookieStorage extends JQueryStorage{

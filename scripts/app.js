@@ -270,6 +270,9 @@ window.onload = function () {
         });
     });
 
+    $("a").on("click", function (ev) {
+        ev.preventDefault();
+        window.open($(ev.target).attr("href"));
+    }, true);
     entityManager.load(siteCollection.toArray());
 };
-//# sourceMappingURL=app.js.map
