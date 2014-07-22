@@ -208,6 +208,10 @@ var Views;
             this.entry = entry;
             this.html = '<article><h3>‎{{pubDate}}</h3><h2><a href = "{{link}}" >{{title}}</a></h2 ><div class="content" >{{content}}</div></article>';
             this.$element = $(this.html.replace("{{pubDate}}", entry.publishedDate).replace("{{link}}", entry.link).replace("{{title}}", entry.title).replace("{{content}}", entry.content));
+            this.$element.find("a").click(function (ev) {
+                ev.preventDefault();
+                window.open($(ev.target).attr("href"));
+            });
         }
         EntryListItemView.prototype.render = function () {
             return this.$element;
@@ -270,9 +274,5 @@ window.onload = function () {
         });
     });
 
-    $("a").on("click", function (ev) {
-        ev.preventDefault();
-        window.open($(ev.target).attr("href"));
-    }, true);
     entityManager.load(siteCollection.toArray());
 };

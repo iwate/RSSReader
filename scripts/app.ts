@@ -206,6 +206,10 @@ module Views {
                 .replace("{{link}}", entry.link)
                 .replace("{{title}}", entry.title)
                 .replace("{{content}}", entry.content));
+            this.$element.find("a").click((ev) => {
+                ev.preventDefault();
+                window.open($(ev.target).attr("href"));
+            });
         }
         render(): JQuery {
             return this.$element;
@@ -266,9 +270,5 @@ window.onload = function () {
             });
     });
 
-    $("a").on("click", (ev) => {
-        ev.preventDefault();
-        window.open($(ev.target).attr("href"));
-    }, true);
     entityManager.load(siteCollection.toArray());
 }
