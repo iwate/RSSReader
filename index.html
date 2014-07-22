@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">  
+    <title>TypeScript HTML App</title>
+    <link href="styles/style.css" rel="stylesheet" />
+    <script src="lib/jquery-2.1.1.min.js"></script>
+    <script src="lib/jquery.storageapi.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load("feeds", "1");
+    </script>
+    <script src="scripts/app.js"></script>
+</head>
+<body>
+    <input type="checkbox" value="" id="is-open" style="display: none;"/>
+    <div id="main-container" class="">
+        <header>
+            <label id="side-opener" for="is-open">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <h1>My Rss Reader</h1>
+        </header>
+    </div>
+    <nav>
+        <h1>My Rss Reader</h1>
+        <div id="register-rss">
+            <input type="url" value="" placeholder="RSS URL" />
+            <button>Add</button>
+        </div>
+    </nav>
+</body>
+</html>

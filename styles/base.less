@@ -1,0 +1,193 @@
+﻿@light_font_color: #FFF;
+@dark_font_color: #111;
+@light_background_color: #FFF;
+@dark_background_color: #777;
+@button_color: #ff6a00;
+@link_text_color: #0094ff;
+@dark_highlight_color: #444;
+@unit: 1rem;
+@default_font: 'Segoe UI', Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+@clear: rgba(0,0,0,0);
+
+.transition(@prop, @timingf, @sec){
+    transition: @prop @timingf @sec;
+    -moz-transition: @prop @timingf @sec;
+    -webkit-transition: @prop @timingf @sec;
+    -o-transition: @prop @timingf @sec;
+}
+.box(){
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -moz-box;
+}
+.flex(){
+    -ms-flex: 1;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+}
+.horizontal(){
+    -ms-flex-direction: row;
+    -webkit-box-orient:horizontal;
+    -moz-box-orient: horizontal;
+}
+.vertical(){
+    -ms-flex-direction: column;
+    -webkit-box-orient:vertical;
+    -moz-box-orient: vertical;
+}
+html, body, ul, li, h1, h2, h3, h4, h5, h6, p, a, input, section, article, nav, header, footer{
+    margin: 0;
+    padding:0;
+}
+ul{ list-style:none}
+html { font-size: 62.5%; } 
+body { font-size: 1.0rem; } 
+html, body {
+    width: 100%;
+    height: 100%;
+}
+h1{
+    font-size: 4.5 * @unit;
+    font-family: @default_font;
+    font-weight: lighter;
+}
+nav {
+    position: fixed;
+    top: 0;
+    left: -32 * @unit;
+    width: 32 * @unit;
+    height: 100%;
+    color: @light_font_color;
+    background-color: @dark_background_color;
+    padding: 0 2 * @unit;
+    box-sizing:border-box;
+    .box();
+    .vertical();
+    h1{
+        margin-top: 2 * @unit;
+    }
+}
+#is-open:checked ~ nav{
+    left: 0;
+}
+#is-open:checked ~ #main-container{
+    left: 32 * @unit;
+}
+#register-rss{
+    margin: 3 * @unit 0;
+    text-align: center;
+    input, button{
+        width: 100%;
+        padding: @unit;
+        box-sizing: border-box;
+    }
+    button{
+        font-size: 1.5 * @unit;
+        color: @light_font_color;
+        background-color: @button_color;
+        border-color: @clear;
+        margin-top: 0.5 * @unit;
+    }
+}
+#rss-list{
+    .flex();
+    overflow-y: auto;
+    margin-bottom: 2 * @unit;
+    li{
+        font-family: @default_font;
+        font-size: 2 * @unit;
+        margin: 0.25 * @unit 0;
+        padding: @unit;
+        .transition(background-color, linear, 0.25s);
+        cursor: pointer;
+    }
+    li.active, li:hover {
+        background-color: @dark_highlight_color;
+    }
+}
+#side-opener{
+    box-sizing: border-box;
+    width: 4 * @unit;
+    height: 4 * @unit;
+    border: 2px solid @dark_font_color;
+    border-radius: 0.5 * @unit;
+    background-color: @light_background_color;
+    margin: @unit 2 * @unit 0 0;
+    padding: 0.5 * @unit;
+    span{
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        border-bottom: 2px solid @dark_font_color;
+        margin: 0.5 * @unit 0;
+    }
+}
+#side-opener:hover{
+    background-color: #ddd;
+}
+#side-opener:active{
+    background-color:@dark_background_color;
+    border-color:@light_background_color;
+    span {
+        border-color:@light_background_color;
+    }
+}
+header {
+    .box();
+    .horizontal();
+    padding: 2 * @unit;
+}
+#main-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 2 * @unit;
+}
+article {
+    h3{
+    }
+    h2{
+        font-size: 3 * @unit;
+    }
+    .content{
+        font-size: 1.6 * @unit;
+        margin-bottom: @unit;
+        padding-bottom: @unit;
+        border-bottom: 1px solid @dark_highlight_color;
+    }
+}
+
+@media (min-width:320px) { 
+    /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ 
+}
+@media (min-width:480px) { 
+    /* smartphones, Android phones, landscape iPhone */ 
+}
+@media (min-width:600px) {
+     /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ 
+}
+@media (min-width:801px) {
+     /* tablet, landscape iPad, lo-res laptops ands desktops */ 
+}
+@media (min-width:1025px) {
+     /* big landscape tablets, laptops, and desktops */ 
+     nav{
+         left: 0;
+     }
+     header {
+         display: none;
+     }
+     #main-container{
+         left: 0;
+         padding-left: 34 * @unit;
+     }
+     #is-open:checked ~ #main-container{
+        left: 0;
+    }
+}
+@media (min-width:1281px) {
+    /* hi-res laptops and desktops */
+}
